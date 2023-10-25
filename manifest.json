@@ -1,0 +1,26 @@
+{
+    "manifest_version": 3,
+    "name": "AVD Percentage Viewer",
+    "version": "1.0",
+    "description": "View the Average View Duration of a Youtube video as a percentage. Useful for when you don't want to wait 2 days for the Youtube Analytics to update.",
+    "icons": {
+        "16": "images/red_arrow.png",
+        "32": "images/red_arrow.png",
+        "48": "images/red_arrow.png",
+        "128": "images/red_arrow.png"
+      },
+    "permissions": [
+        "activeTab",
+        "storage"
+    ],
+      "content_scripts": [
+        {
+          "js": ["scripts/main.js"],
+          "matches": [
+            "https://studio.youtube.com/video/*/analytics/tab-interest_viewers/period-default"
+          ],
+          "run_at": "document_idle",
+          "all_frames": true
+        }
+      ]
+  }
